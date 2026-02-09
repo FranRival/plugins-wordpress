@@ -1,0 +1,14 @@
+#cwv-load-more {
+  display:block;
+  width:100%;
+  margin:30px auto;
+  padding:18px;
+  font-size:18px;
+  background:#00ff6a;
+  color:#000;
+  border:none;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+}
+#cwv-load-more:disabled { opacity:.6; cursor:wait; }

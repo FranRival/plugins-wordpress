@@ -219,6 +219,123 @@ Este plugin **no actúa visualmente por sí solo**, pero es ideal como **trigger
 
 ---
 
+---
+
+### 4️⃣ ⚡ Core Web Vitals Pro (AJAX Safe)
+
+**Descripción:**  
+Plugin encargado de la **carga progresiva de imágenes** en posts etiquetados por **mes/año**, con foco en **mejorar Core Web Vitals** (LCP, CLS y TBT) mediante reducción del contenido inicial renderizado.
+
+Este plugin **intercepta el contenido del post** y muestra únicamente un subconjunto inicial de imágenes, cargando el resto bajo demanda vía **AJAX seguro con nonce**.
+
+---
+
+#### 📂 Carpeta
+/wp-content/plugins/core-web-vitals-pro/
+
+
+---
+
+#### ⚙️ Funcionamiento general
+
+- 🔍 Detecta posts individuales (`is_single`)
+- 🏷️ Se activa **solo si el post contiene etiquetas específicas**
+- 🖼️ Renderiza inicialmente **6 imágenes**
+- ➕ Inserta un botón **“Load more images”**
+- 🔁 Carga el resto de imágenes en bloques vía AJAX
+- 🔐 Protege las peticiones con `nonce`
+
+---
+
+#### ✨ Características
+- ⚡ Optimización directa de Core Web Vitals
+- 🧠 Uso de `DOMDocument` para parsing seguro de HTML
+- 🔘 Carga progresiva por lotes (`batch`)
+- 🔄 AJAX sin recarga de página
+- 🔒 Seguridad mediante `nonce`
+- 🚫 No modifica el editor ni el contenido guardado
+
+---
+
+#### 🏷️ Etiquetas activadoras
+El plugin se ejecuta **solo si el post contiene al menos una** de las siguientes etiquetas:
+
+- diciembre-2025  
+- february-2026  
+- march-2026  
+- april-2026  
+- may-2026  
+- june-2026  
+- july-2026  
+- august-2026  
+- september-2026  
+- october-2026  
+- november-2026  
+- december-2026  
+
+---
+
+#### 🎯 Casos de uso
+- Posts con **gran volumen de imágenes**
+- Mejora de métricas **LCP / CLS**
+- Control estricto del contenido inicial
+- Sitios con enfoque en performance técnico
+- Gestión de contenido visual por temporadas
+
+---
+
+#### ⚠️ Advertencia importante
+
+- 🚨 Este plugin **reemplaza completamente el contenido renderizado**
+- 🚨 Tiene **prioridad más alta** que otros plugins similares
+- 🚨 En caso de coexistir con plugins que hacen lo mismo:
+  - **Este plugin tiene precedencia**
+
+👉 Actualmente entra en **conflicto directo** con *ImgBox Load More* (ver sección de conflicto).
+
+---
+
+#### 🔮 Plan futuro
+- 🔁 Fusión con ImgBox Load More
+- 🧩 Unificación de lógica por etiquetas
+- ⚙️ Control dinámico de límites (imágenes iniciales / batch)
+- 🧠 Arquitectura única sin duplicidades
+
+---
+
+
+---
+
+## ⚠️ Conflicto entre plugins de carga progresiva
+
+Actualmente existen **dos plugins activos que realizan la misma función base**:  
+👉 **carga progresiva de imágenes mediante botón (“Load more”) en posts etiquetados**.
+
+### 🔴 Plugins en conflicto
+- **Core Web Vitals Pro (AJAX Safe)**
+- **ImgBox Load More (Content-Based)**
+
+Ambos:
+- Interceptan `the_content`
+- Ocultan imágenes
+- Insertan un botón de carga
+- Se activan por **etiquetas (tags)**
+
+⚠️ **Esto provoca un conflicto funcional**, ya que **no están diseñados para convivir**.
+
+---
+
+## 🧠 ¿Cuál plugin controla la etiqueta `diciembre-2025`?
+
+👉 **Core Web Vitals Pro (AJAX Safe)**
+
+### Motivos técnicos:
+- Escucha explícitamente la etiqueta `diciembre-2025`
+- Se ejecuta con **mayor prioridad**:
+  ```php
+  add_filter('the_content', ..., 9);
+
+
 
 
 ## 🔧 Instalación

@@ -75,24 +75,28 @@ function ptdb2_render_tags($post_id) {
 /**
  * Debajo del título (solo post principal)
  */
+
 add_filter('the_title', function ($title, $post_id) {
 
-    if (
-        ! is_singular('post') ||
-        ! in_the_loop() ||
-        ! is_main_query()
-    ) {
+    if ( ! is_singular('post') ) {
+        return $title;
+    }
+
+    if ( ! in_the_loop() ) {
         return $title;
     }
 
     global $post;
-    if ( ! $post || $post->ID !== $post_id ) {
+
+    // 🔒 Asegura que sea el post principal exacto
+    if ( ! isset($post) || $post->ID !== get_queried_object_id() ) {
         return $title;
     }
 
     return $title . ptdb2_render_tags($post_id);
 
 }, 10, 2);
+
 
 /**
  * Al final del contenido (solo post principal)

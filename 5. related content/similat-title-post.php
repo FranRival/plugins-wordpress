@@ -4,6 +4,8 @@ Plugin Name: Similar Title Posts
 Description: Shows posts with similar titles based on keyword matching.
 Version: 0.1
 Author: Emmanuel
+Activacion: 10-3-26 creado. Sera el 12 de marzo su subida y activacion oficial.
+
 */
 
 if (!defined('ABSPATH')) exit;
@@ -68,7 +70,7 @@ if(empty($words)) return array();
 
 $args = array(
 'post_type'=>'post',
-'posts_per_page'=>50,
+'posts_per_page'=>6,
 'post__not_in'=>array($post_id)
 );
 

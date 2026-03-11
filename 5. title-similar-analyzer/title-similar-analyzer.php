@@ -21,3 +21,9 @@ require_once TSA_PATH . 'fronted-display.php';
 
 
 register_activation_hook(__FILE__, 'tsa_install_table');
+
+/*
+Cambios: 
+1. aleatoriedad
+2. se colocan debajo del titulo. y ahi mismo aparecen las tags. es decir, rompen el codigo
+*/

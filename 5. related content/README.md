@@ -28,3 +28,10 @@
 . crea indices
 . guarda datos
 
+
+**** errores: la base de datos. 
+*** SWFox no aparece Octo
+*** En su listado en el top me aparecen las palabras clave que mas se repiten. Pero no me aparece la segunda KW. lo que significa que no tiene tanto poder. HAY QUE ARREGLAR EL CRUCE DE PALABRAS CLAVE.
+
+**** Mejoras:
+*** ya podemos implementar un sistema de calificacion. una vez hecho, se colocaran solo los post mas calificados en el related title similarity.  

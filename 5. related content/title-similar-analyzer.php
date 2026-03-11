@@ -17,5 +17,6 @@ require_once TSA_PATH . 'stopwords.php';
 require_once TSA_PATH . 'indexer.php';
 require_once TSA_PATH . 'similarity-engine.php';
 require_once TSA_PATH . 'admin-page.php';
+require_once TSA_PATH . 'frontend-display.php';
 
 register_activation_hook(__FILE__, 'tsa_install_table');

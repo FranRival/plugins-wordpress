@@ -44,8 +44,6 @@ echo '<p><strong>Index built successfully.</strong></p>';
 
 }
 
-
-
 echo '<hr>';
 
 echo '<h2>Test Post Similarity</h2>';
@@ -72,7 +70,59 @@ echo '<p>No similar posts found.</p>';
 
 }else{
 
-echo '<h3>Similar Posts:</h3>';
+echo '<h3>Similar Posts</h3>';
+
+/* ===== DETECTAR PALABRAS CLAVE ===== */
+
+$word_counts = array();
+
+foreach($similar as $pid){
+
+$title = strtolower(get_the_title($pid));
+
+$title = preg_replace('/[^\p{L}\p{N}\s]/u','',$title);
+
+$words = explode(' ',$title);
+
+foreach($words as $w){
+
+if(strlen($w) < 4) continue;
+
+if(!isset($word_counts[$w])){
+$word_counts[$w] = 0;
+}
+
+$word_counts[$w]++;
+
+}
+
+}
+
+/* ordenar por frecuencia */
+
+arsort($word_counts);
+
+/* mostrar top palabras */
+
+echo "<strong>Clusters detected:</strong><br>";
+
+$count = 0;
+
+foreach($word_counts as $word=>$total){
+
+if($total < 3) continue;
+
+echo $word." (".$total.")<br>";
+
+$count++;
+
+if($count >= 5) break;
+
+}
+
+echo "<hr>";
+
+/* ===== MOSTRAR TITULOS ===== */
 
 echo '<ul>';
 
@@ -91,7 +141,6 @@ echo '</ul>';
 }
 
 }
-
 
 echo '</div>';
 

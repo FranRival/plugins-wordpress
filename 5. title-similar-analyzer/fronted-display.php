@@ -1,56 +1,55 @@
 <?php
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 add_filter('the_content','tsa_insert_similar_posts');
 
 function tsa_insert_similar_posts($content){
 
-/* solo en posts individuales */
+    if(!is_single()){
+        return $content;
+    }
 
-if(!is_single()){
-return $content;
-}
+    if(!function_exists('tsa_find_similar_posts')){
+        return $content;
+    }
 
-global $post;
+    global $post;
 
-$post_id = $post->ID;
+    if(!$post){
+        return $content;
+    }
 
-/* buscar similares */
+    $post_id = $post->ID;
 
-$similar = tsa_find_similar_posts($post_id);
+    $similar = tsa_find_similar_posts($post_id);
 
-/* si no hay coincidencias */
+    if(empty($similar)){
+        return $content;
+    }
 
-if(empty($similar)){
-return $content;
-}
+    $similar = array_slice($similar,0,6);
 
-/* limitar a 6 */
+    $html = '<div class="tsa-similar-posts">';
+    $html .= '<h3>Similar Posts</h3>';
+    $html .= '<ul>';
 
-$similar = array_slice($similar,0,6);
+    foreach($similar as $pid){
 
-/* construir bloque */
+        $title = get_the_title($pid);
+        $link  = get_permalink($pid);
 
-$html = '<div class="tsa-similar-posts">';
+        if(!$title || !$link){
+            continue;
+        }
 
-$html .= '<h3>Similar Posts</h3>';
+        $html .= '<li><a href="'.$link.'">'.$title.'</a></li>';
+    }
 
-$html .= '<ul>';
+    $html .= '</ul>';
+    $html .= '</div>';
 
-foreach($similar as $pid){
-
-$title = get_the_title($pid);
-$link = get_permalink($pid);
-
-$html .= '<li><a href="'.$link.'">'.$title.'</a></li>';
-
-}
-
-$html .= '</ul>';
-
-$html .= '</div>';
-
-/* insertar después del contenido */
-
-return $content . $html;
-
+    return $content . $html;
 }

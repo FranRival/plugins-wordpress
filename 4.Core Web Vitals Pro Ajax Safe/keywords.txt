@@ -1,0 +1,112 @@
+1️⃣ Palabras clave del nicho
+
+(dónde vive el plugin)
+
+Este plugin pertenece al área de web performance y Core Web Vitals.
+
+Core niche
+	•	wordpress core web vitals plugin
+	•	wordpress performance optimization plugin
+	•	wordpress speed optimization plugin
+	•	wordpress page speed plugin
+
+Más técnico
+	•	core web vitals optimization wordpress
+	•	wordpress performance engineering
+	•	wordpress frontend performance plugin
+	•	wordpress web performance optimization
+
+Micro-nicho
+	•	wordpress ajax performance optimization
+	•	wordpress javascript performance plugin
+	•	wordpress rendering optimization plugin
+
+⸻
+
+2️⃣ Palabras clave de la función
+
+(lo que hace el plugin)
+
+Core Web Vitals
+	•	optimize core web vitals wordpress
+	•	improve LCP wordpress
+	•	improve CLS wordpress
+	•	improve INP wordpress
+
+AJAX
+	•	ajax safe scripts wordpress
+	•	optimize ajax requests wordpress
+	•	prevent ajax blocking wordpress
+
+JavaScript
+	•	optimize javascript loading wordpress
+	•	defer javascript wordpress
+	•	asynchronous javascript wordpress
+
+Rendering
+	•	reduce render blocking wordpress
+	•	optimize critical rendering path wordpress
+
+⸻
+
+3️⃣ Palabras clave del problema que resuelve
+
+Aquí están los pain points reales.
+
+Performance
+	•	fix slow wordpress websites
+	•	reduce page load time wordpress
+	•	improve website performance wordpress
+
+Core Web Vitals
+	•	fix poor core web vitals wordpress
+	•	improve google page experience wordpress
+	•	pass core web vitals wordpress
+
+JavaScript
+	•	prevent javascript blocking wordpress
+	•	reduce script execution time wordpress
+	•	optimize frontend scripts wordpress
+
+⸻
+
+4️⃣ Palabras clave de búsqueda real
+	•	how to improve core web vitals wordpress
+	•	fix core web vitals wordpress
+	•	optimize javascript wordpress speed
+	•	reduce render blocking resources wordpress
+
+⸻
+
+5️⃣ Palabras clave de perfil profesional
+
+Este plugin ya entra más en performance engineering real.
+	•	wordpress performance developer
+	•	web performance engineer
+	•	frontend performance engineer
+	•	wordpress speed optimization expert
+	•	technical seo performance developer
+
+
+
+Core Web Vitals Pro Ajax Safe - Performance engineering
+
+Perfil técnico real
+
+WordPress Systems & Performance Developer
+
+⸻
+
+Traducido al mercado
+
+Estos títulos sí existen en ofertas:
+
+Comunes
+	•	WordPress Plugin Developer
+	•	WordPress Backend Developer
+
+Más especializados
+	•	WordPress Performance Engineer
+	•	Technical SEO Developer
+	•	Web Performance Engineer
+

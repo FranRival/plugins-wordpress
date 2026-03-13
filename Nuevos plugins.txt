@@ -18,3 +18,48 @@ plugin para detectar la cantidad de imagenes quebradas en todos los post.
 
 OTRO
 detectar la cantidad de mas trafico en.... _-----ya lo hace analitycs. 
+
+
+PALABRAS CLAVE A NIVEL GENERAL
+
+Principales
+
+WordPress Plugin Developer
+WordPress Developer
+Senior WordPress Developer
+PHP WordPress Developer
+
+⸻
+
+Más especializados
+
+WordPress Backend Developer
+WordPress Core Developer
+Custom WordPress Developer
+WordPress Solutions Developer
+
+⸻
+
+Relacionados con SEO técnico (muy alineado con tus plugins)
+
+Technical SEO Developer
+SEO Tools Developer
+SEO Software Developer
+Technical SEO Engineer
+
+⸻
+
+Relacionados con performance
+
+WordPress Performance Engineer
+Web Performance Developer
+Core Web Vitals Specialist
+
+⸻
+
+Relacionados con productos/plugins
+
+Plugin Developer
+CMS Plugin Developer
+WordPress Product Developer
+WordPress Tools Developer

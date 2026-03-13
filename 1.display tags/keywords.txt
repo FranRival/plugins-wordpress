@@ -1,0 +1,130 @@
+1️⃣ Palabras clave del nicho
+
+(la industria o especialidad)
+
+Estas son las que usaría alguien buscando plugins de este tipo.
+
+Core niche
+	•	wordpress taxonomy plugin
+	•	wordpress tag plugin
+	•	wordpress content filtering plugin
+	•	wordpress dynamic content plugin
+	•	wordpress query plugin
+	•	wordpress post filtering plugin
+
+Más técnicas
+	•	wordpress taxonomy query
+	•	wordpress dynamic post display
+	•	wordpress conditional content plugin
+	•	wordpress taxonomy display plugin
+	•	wordpress custom query plugin
+
+Micro-nicho
+	•	wordpress tag filtering
+	•	wordpress category filtering
+	•	wordpress content segmentation
+	•	wordpress dynamic post listing
+	•	wordpress conditional display
+
+⸻
+
+2️⃣ Palabras clave de la función
+
+(lo que el plugin hace técnicamente)
+
+Aquí entran las keywords que usan developers o power users.
+
+Display / render
+	•	display posts by tag wordpress
+	•	show posts by tag wordpress
+	•	display taxonomy wordpress
+	•	show posts by taxonomy
+	•	wordpress show related posts by tag
+
+Filtrado
+	•	filter posts by tag wordpress
+	•	filter content by taxonomy
+	•	wordpress tag filtering
+	•	wordpress dynamic filtering
+
+Query
+	•	wordpress tag query
+	•	wordpress taxonomy query
+	•	wp_query tag filter
+	•	wordpress custom post query
+
+Shortcodes / bloques
+	•	wordpress shortcode display posts
+	•	wordpress shortcode tags
+	•	dynamic shortcode wordpress
+
+⸻
+
+3️⃣ Palabras clave del problema que resuelve
+
+(estas son MUY buenas para posicionamiento)
+
+Aquí entran los pain points reales.
+
+Organización de contenido
+	•	organize posts by tags wordpress
+	•	group posts by tags wordpress
+	•	create tag based sections wordpress
+
+Automatización
+	•	automatically show related posts by tag
+	•	dynamic post lists wordpress
+	•	auto generate post lists wordpress
+
+UX / navegación
+	•	improve content navigation wordpress
+	•	create filtered content sections wordpress
+	•	wordpress content discovery plugin
+
+Sitios grandes
+	•	manage large wordpress content libraries
+	•	display structured content wordpress
+	•	scalable content organization wordpress
+
+⸻
+
+4️⃣ Keywords de intención real de búsqueda
+
+(estas son oro para SEO o para encontrar trabajos)
+	•	how to show posts by tag wordpress
+	•	how to filter posts by tag wordpress
+	•	display posts by taxonomy wordpress
+	•	wordpress show related posts automatically
+	•	wordpress tag based content display
+
+⸻
+
+5️⃣ Palabras clave de perfil profesional
+
+(si alguien trabaja en esto)
+
+Estas son las que probablemente te interesan más.
+	•	wordpress plugin developer
+	•	wordpress backend developer
+	•	wordpress php developer
+	•	wordpress plugin engineer
+	•	wordpress extension developer
+
+Más nichadas:
+	•	wordpress taxonomy developer
+	•	wordpress query optimization developer
+	•	wordpress plugin architect
+
+⸻
+
+💡 Algo importante
+
+Este tipo de plugin pertenece a un área específica de WordPress:
+
+WordPress Content Architecture
+
+Es decir:
+	•	taxonomías
+	•	queries
+	•	filtrado
+	•	organización de contenido

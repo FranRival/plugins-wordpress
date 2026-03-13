@@ -1,0 +1,86 @@
+Core niche
+	•	wordpress automation plugin
+	•	wordpress auto tagging plugin
+	•	wordpress dynamic tags plugin
+	•	wordpress content automation plugin
+	•	wordpress taxonomy automation
+
+Más técnico
+	•	wordpress auto taxonomy assignment
+	•	wordpress automated tagging system
+	•	wordpress dynamic content classification
+	•	wordpress rule based tagging
+
+Micro-nicho
+	•	wordpress time based content tagging
+	•	wordpress temporal taxonomy
+	•	wordpress automated content categorization
+
+⸻
+
+2️⃣ Palabras clave de la función
+
+(lo que el plugin hace)
+
+Auto tagging
+	•	automatically tag posts wordpress
+	•	wordpress auto assign tags
+	•	wordpress automatic taxonomy assignment
+
+Basado en tiempo
+	•	tag posts last 24 hours wordpress
+	•	show recent posts automatically wordpress
+	•	dynamic recent content tagging
+
+Reglas
+	•	rule based tagging wordpress
+	•	automatic content classification wordpress
+	•	dynamic taxonomy rules wordpress
+
+⸻
+
+3️⃣ Palabras clave del problema que resuelve
+
+Aquí están los pain points.
+
+Gestión de contenido
+	•	manage recent posts wordpress
+	•	organize fresh content wordpress
+	•	automate content organization wordpress
+
+Automatización
+	•	avoid manual tagging wordpress
+	•	automatic post classification wordpress
+	•	dynamic content grouping wordpress
+
+UX / contenido fresco
+	•	highlight recent posts wordpress
+	•	show trending content wordpress
+	•	dynamic recent content sections
+
+⸻
+
+4️⃣ Keywords de búsqueda real
+	•	how to automatically tag posts wordpress
+	•	wordpress show posts from last 24 hours
+	•	dynamic recent posts wordpress
+	•	wordpress auto categorize posts
+
+
+
+
+Auto Last 24 Hour Tag - area: Automatización de contenido
+
+perfil 
+WordPress Systems Developer
+WordPress Plugin Engineer
+
+
+WordPress Plugin & Performance Developer
+
+Especializado en:
+	•	Content Architecture
+	•	Dynamic Loading
+	•	Content Automation
+
+

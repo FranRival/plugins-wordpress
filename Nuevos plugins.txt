@@ -1,0 +1,20 @@
+cantida de post que se publican por dia.
+cantidad de post que se publicaran el dia siguiente. 
+por semana
+
+
+
+OTRO
+medir la velocidad del sitio sin la tag de analitycs
+----la web va a crecer si o si. aun sin la etiqueta de analitycs. 
+cuantas otras etiquetas te estan consumiendo velocidad
+
+
+
+
+OTRO
+plugin para detectar la cantidad de imagenes quebradas en todos los post.
+
+
+OTRO
+detectar la cantidad de mas trafico en.... _-----ya lo hace analitycs. 

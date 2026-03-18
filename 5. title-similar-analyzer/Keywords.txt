@@ -1,0 +1,95 @@
+Core niche
+	•	wordpress content analysis plugin
+	•	wordpress content audit plugin
+	•	wordpress seo analysis plugin
+	•	wordpress internal content analysis
+
+Arquitectura de contenido
+	•	wordpress content structure analysis
+	•	wordpress content similarity detection
+	•	wordpress topic clustering plugin
+	•	wordpress content overlap detection
+
+SEO editorial
+	•	wordpress keyword cannibalization tool
+	•	wordpress seo content audit
+	•	wordpress content structure optimization
+
+⸻
+
+2️⃣ Palabras clave de la función
+
+(lo que el plugin hace)
+
+Similitud de títulos
+	•	analyze similar titles wordpress
+	•	detect similar post titles wordpress
+	•	find duplicate titles wordpress
+
+Contenido relacionado
+	•	find related posts by title
+	•	detect topic similarity wordpress
+	•	analyze keyword overlap wordpress
+
+Análisis textual
+	•	wordpress text similarity analysis
+	•	wordpress title analysis tool
+	•	wordpress semantic similarity plugin
+
+⸻
+
+3️⃣ Palabras clave del problema que resuelve
+
+Aquí están los pain points reales.
+
+SEO
+	•	detect keyword cannibalization wordpress
+	•	avoid competing pages wordpress
+	•	identify duplicate content wordpress
+
+Arquitectura
+	•	organize content topics wordpress
+	•	identify overlapping posts wordpress
+	•	improve content structure wordpress
+
+Gestión editorial
+	•	audit blog content wordpress
+	•	detect content redundancy wordpress
+	•	manage large content libraries wordpress
+
+⸻
+
+4️⃣ Palabras clave de búsqueda real
+	•	how to detect keyword cannibalization wordpress
+	•	how to find duplicate titles wordpress
+	•	wordpress content audit tool
+	•	analyze blog structure wordpress
+
+⸻
+
+5️⃣ Palabras clave de perfil profesional
+
+Este plugin entra mucho en:
+	•	SEO técnico
+	•	content systems
+	•	data analysis aplicado a contenido
+
+Keywords de perfil:
+	•	technical seo developer
+	•	seo automation developer
+	•	content analysis engineer
+	•	wordpress seo developer
+	•	seo tools developer
+
+
+
+Title Similar Analyzer - SEO / análisis
+WordPress Plugin & SEO Systems Developer
+
+Especializado en:
+	•	content architecture
+	•	seo automation
+	•	content analysis
+	•	performance optimization
+
+

@@ -1,0 +1,124 @@
+1️⃣ Palabras clave del nicho
+
+(el área técnica donde vive el plugin)
+
+Core niche
+	•	wordpress load more plugin
+	•	wordpress infinite scroll plugin
+	•	wordpress ajax pagination
+	•	wordpress dynamic pagination
+	•	wordpress lazy loading images
+
+Media delivery
+	•	wordpress image loading optimization
+	•	wordpress gallery pagination
+	•	wordpress media loading plugin
+	•	wordpress image performance plugin
+
+Performance
+	•	wordpress page speed optimization
+	•	reduce initial page load wordpress
+	•	wordpress progressive loading
+
+Más técnico
+	•	ajax load more wordpress
+	•	dynamic content loading wordpress
+	•	asynchronous content loading wordpress
+
+⸻
+
+2️⃣ Palabras clave de la función
+
+(lo que el plugin hace)
+
+Carga dinámica
+	•	load more posts wordpress
+	•	load more images wordpress
+	•	load more gallery wordpress
+	•	load more content wordpress
+
+Paginación
+	•	ajax pagination wordpress
+	•	dynamic pagination wordpress
+	•	wordpress infinite scroll images
+	•	wordpress load next posts button
+
+Imágenes
+	•	load more imgbox images
+	•	paginate image galleries wordpress
+	•	progressive image loading wordpress
+
+UX
+	•	infinite image scroll wordpress
+	•	lazy load image gallery wordpress
+	•	dynamic image grid wordpress
+
+⸻
+
+3️⃣ Palabras clave del problema que resuelve
+
+Aquí están los pain points reales.
+
+Performance
+	•	reduce page weight wordpress
+	•	avoid loading too many images wordpress
+	•	optimize large galleries wordpress
+
+UX
+	•	improve gallery navigation wordpress
+	•	load images progressively wordpress
+	•	better image browsing wordpress
+
+SEO
+	•	avoid heavy pages wordpress
+	•	reduce time to first load wordpress
+	•	improve core web vitals wordpress
+
+⸻
+
+4️⃣ Palabras clave de intención real
+
+(las que la gente realmente busca)
+	•	how to load more posts wordpress
+	•	ajax load more images wordpress
+	•	infinite scroll gallery wordpress
+	•	wordpress load more button
+	•	paginate images wordpress
+
+⸻
+
+5️⃣ Palabras clave de perfil profesional
+
+(si alguien construye este tipo de plugins)
+
+Esto entra más en frontend performance + wordpress dev.
+	•	wordpress performance developer
+	•	wordpress frontend developer
+	•	wordpress ajax developer
+	•	wordpress javascript developer
+	•	wordpress plugin developer
+
+Más específico:
+	•	wordpress performance engineer
+	•	wordpress optimization developer
+	•	wordpress ajax pagination developer
+
+⸻
+
+💡 Un detalle interesante
+
+Tus dos plugins pertenecen a dos subdisciplinas distintas dentro de WordPress:
+
+
+Plugin
+Display Tags - area: Content Architecture
+ImgBox Load More - area: Performance & Dynamic Loading
+
+Y juntas crean un perfil muy interesante:
+
+WordPress Performance & Content Systems Developer
+
+Ese perfil sí tiene mercado freelance.
+
+
+

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Posts por Día
 Description: Muestra cuántos posts se publican por día en el admin.
-Version: 1.0
+Version: 1.02
 */
 
 if (!defined('ABSPATH')) exit;
@@ -10,8 +10,8 @@ if (!defined('ABSPATH')) exit;
 // Crear menú en admin
 add_action('admin_menu', function() {
     add_menu_page(
-        'Posts por Día',
-        'Posts por Día',
+        'Posts per Day',
+        'Posts per Day',
         'manage_options',
         'posts-por-dia',
         'ppd_render_admin_page',
@@ -54,13 +54,13 @@ function ppd_render_admin_page() {
     $end = new DateTime($end_next_month);
 
     echo '<div class="wrap">';
-    echo '<h1>Posts por día (resto del mes + siguiente)</h1>';
+    echo '<h1>Post per day (current + next month)</h1>';
 
     echo '<table class="widefat fixed striped">';
     echo '<thead>
             <tr>
-                <th>Fecha</th>
-                <th>Posts programados/publicados</th>
+                <th>Date</th>
+                <th>Posts Schedule/published</th>
             </tr>
           </thead>';
     echo '<tbody>';

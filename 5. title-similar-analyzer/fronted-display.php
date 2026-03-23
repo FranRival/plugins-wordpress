@@ -30,6 +30,8 @@ function tsa_insert_similar_posts($content){
         return $content;
     }
 
+    //Random
+    shuffle($similar); // mezclar resultados
     $similar = array_slice($similar,0,6);
 
     $html = '<div class="tsa-similar-posts">';

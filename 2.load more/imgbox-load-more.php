@@ -72,3 +72,7 @@ add_action('wp_enqueue_scripts', function() {
     wp_localize_script('imgblm-js', 'imgblm_ajax', ['ajax_url' => admin_url('admin-ajax.php')]);
     wp_enqueue_style('imgblm-css', plugin_dir_url(__FILE__) . 'style.css');
 });
+
+
+//agregar una hoja en el wp-admin. En ella hay que colocar las tags a las que actua el plugin de carga. 
+//necesitamos una TAG enfocada al peso por anos. 2021 size, 2022 siza, 2023 size, 2024 size, 2025 siza. 

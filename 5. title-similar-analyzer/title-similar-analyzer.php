@@ -26,4 +26,9 @@ register_activation_hook(__FILE__, 'tsa_install_table');
 Cambios: 
 1. aleatoriedad
 2. se colocan debajo del titulo. y ahi mismo aparecen las tags. es decir, rompen el codigo
+mejorar match -nueva hoja- de reconocimiento de titulos. 
+esta quebrado: titulo aparece debajo. algunas veces, en el fondo. otras, bajo el titulo 
+las de cosplay solo recomienda otros cosplay
+recomienda solo las que comparten similitud de anos
+
 */

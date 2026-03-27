@@ -145,5 +145,3 @@ function imgblm_get_tags(){
 }
 
 
-//agregar una hoja en el wp-admin. En ella hay que colocar las tags a las que actua el plugin de carga. 
-//necesitamos una TAG enfocada al peso por anos. 2021 size, 2022 siza, 2023 size, 2024 size, 2025 siza. 

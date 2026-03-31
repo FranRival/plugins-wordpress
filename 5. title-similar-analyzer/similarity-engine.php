@@ -23,6 +23,9 @@ function tsa_find_similar_posts($post_id){
         }
     }
 
+    // evitar duplicados
+    $normalized = array_unique($normalized);
+
     if(empty($normalized)){
         return array();
     }
@@ -30,7 +33,7 @@ function tsa_find_similar_posts($post_id){
     // preparar placeholders dinámicos
     $placeholders = implode(',', array_fill(0, count($normalized), '%s'));
 
-    // QUERY IMPORTANTE
+    // QUERY con score (clave para ranking real)
     $query = "
         SELECT post_id, COUNT(*) as score
         FROM $table
@@ -54,7 +57,7 @@ function tsa_find_similar_posts($post_id){
         return array();
     }
 
-    // devolver solo IDs ordenados
+    // devolver solo IDs ordenados por relevancia
     $post_ids = array();
 
     foreach($results as $row){
@@ -62,71 +65,6 @@ function tsa_find_similar_posts($post_id){
     }
 
     return $post_ids;
-}
-
-
-
-function tsa_find_similar_posts($post_id){
-
-global $wpdb;
-
-$table = $wpdb->prefix . 'title_word_index';
-
-$title = get_the_title($post_id);
-
-$words = tsa_clean_words($title);
-
-if(empty($words)){
-return array();
-}
-
-/* normalizar */
-
-$normalized = array();
-
-foreach($words as $w){
-
-$n = tsa_normalize_word($w);
-
-if(strlen($n) > 3){
-$normalized[] = $n;
-}
-
-}
-
-if(empty($normalized)){
-return array();
-}
-
-/* usar la primera palabra fuerte */
-
-$main = $normalized[0];
-
-/* buscar posts con esa palabra */
-
-$results = $wpdb->get_col(
-
-$wpdb->prepare(
-
-"SELECT post_id 
-FROM $table 
-WHERE word LIKE %s 
-LIMIT 200",
-
-$main.'%'
-
-)
-
-);
-
-$results = array_unique($results);
-
-/* quitar el post actual */
-
-$results = array_diff($results, array($post_id));
-
-return $results;
-
 }
 
 

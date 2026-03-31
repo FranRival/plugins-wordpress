@@ -82,3 +82,8 @@ $results = array_diff($results, array($post_id));
 return $results;
 
 }
+
+
+///el principal problema, no detecta el porcentaje de similitud de titulos. de texto. variaciones de palabras. Palabras en medio, genera a cada momento falsos positivos. coincidiendo solo en la primera palabra. Fallanado en las demas. 
+
+//con un post de titulo de 3 palabras iguales deberian de rankear mas alto que tiene 1 solsa palabra. 

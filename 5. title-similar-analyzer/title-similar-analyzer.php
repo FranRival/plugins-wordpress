@@ -3,7 +3,7 @@
 Plugin Name: Title Similarity Analyzer
 Description: Analiza títulos de posts y detecta similitudes.
 Version: 1.5
-Author: Blender
+Author: Emmanuel
 */
 
 if (!defined('ABSPATH')) {

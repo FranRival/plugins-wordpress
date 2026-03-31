@@ -47,13 +47,17 @@ $words = tsa_clean_words($post->post_title);
 
 foreach ($words as $word) {
 
-$wpdb->insert(
-$table,
-array(
-'word' => $word,
-'post_id' => $post->ID
-)
-);
+    $word = tsa_normalize_word($word);
+
+    if(strlen($word) < 4) continue;
+
+    $wpdb->insert(
+        $table,
+        array(
+            'word' => $word,
+            'post_id' => $post->ID
+        )
+    );
 
 }
 

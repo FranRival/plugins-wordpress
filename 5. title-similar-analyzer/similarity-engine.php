@@ -1,21 +1,67 @@
 <?php
 
-function tsa_normalize_word($word){
+function tsa_find_similar_posts($post_id){
 
-$word = strtolower($word);
+    global $wpdb;
 
-/* quitar caracteres especiales */
+    $table = $wpdb->prefix . 'title_word_index';
 
-$word = preg_replace('/[^a-z0-9]/','',$word);
+    $title = get_the_title($post_id);
 
-/* normalizar variaciones */
+    $words = tsa_clean_words($title);
 
-$word = str_replace('sweetiefoxof','sweetiefox',$word);
-$word = str_replace('sweetiefox_of','sweetiefox',$word);
-$word = str_replace('sweetiefox','sweetiefox',$word);
+    if(empty($words)){
+        return array();
+    }
 
-return $word;
+    $normalized = array();
 
+    foreach($words as $w){
+        $n = tsa_normalize_word($w);
+        if(strlen($n) > 3){
+            $normalized[] = $n;
+        }
+    }
+
+    if(empty($normalized)){
+        return array();
+    }
+
+    // preparar placeholders dinámicos
+    $placeholders = implode(',', array_fill(0, count($normalized), '%s'));
+
+    // QUERY IMPORTANTE
+    $query = "
+        SELECT post_id, COUNT(*) as score
+        FROM $table
+        WHERE word IN ($placeholders)
+        AND post_id != %d
+        GROUP BY post_id
+        HAVING score >= 2
+        ORDER BY score DESC
+        LIMIT 50
+    ";
+
+    // preparar valores
+    $params = $normalized;
+    $params[] = $post_id;
+
+    $prepared = $wpdb->prepare($query, $params);
+
+    $results = $wpdb->get_results($prepared);
+
+    if(empty($results)){
+        return array();
+    }
+
+    // devolver solo IDs ordenados
+    $post_ids = array();
+
+    foreach($results as $row){
+        $post_ids[] = $row->post_id;
+    }
+
+    return $post_ids;
 }
 
 

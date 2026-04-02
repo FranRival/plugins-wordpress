@@ -1,8 +1,11 @@
 <?php
 /*
-Plugin Name: Posts por Día
-Description: Muestra cuántos posts se publican por día en el admin.
-Version: 1.02
+Plugin Name: PostPerDay
+Description: Displays posts per day with chart and table in WP admin.
+Version: 1.3
+Author: FranRival
+License: GPL2+
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
 if (!defined('ABSPATH')) exit;

@@ -22,5 +22,3 @@ require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 dbDelta($sql);
 
 }
-
-register_activation_hook(dirname(__FILE__) . '/title-similarity-analyzer.php', 'tsa_install_table');

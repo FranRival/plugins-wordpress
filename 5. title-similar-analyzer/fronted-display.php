@@ -6,19 +6,24 @@ if (!defined('ABSPATH')) {
 
 add_filter('the_content','tsa_insert_similar_posts');
 
-function tsa_insert_similar_posts($content){
+function tsa_insert_similar_posts($content) {
 
-    if(!is_single()){
+    // Evitar que corra fuera del loop principal
+    if (!is_single()) {
         return $content;
     }
 
-    if(!function_exists('tsa_find_similar_posts')){
+    if (!in_the_loop() || !is_main_query()) {
+        return $content;
+    }
+
+    if (!function_exists('tsa_find_similar_posts')) {
         return $content;
     }
 
     global $post;
 
-    if(!$post){
+    if (!$post) {
         return $content;
     }
 
@@ -26,28 +31,22 @@ function tsa_insert_similar_posts($content){
 
     $similar = tsa_find_similar_posts($post_id);
 
-    if(empty($similar)){
+    if (empty($similar)) {
         return $content;
     }
 
-    //Random
-    shuffle($similar); // mezclar resultados
-    $similar = array_slice($similar,0,6);
+    shuffle($similar);
+    $similar = array_slice($similar, 0, 6);
 
     $html = '<div class="tsa-similar-posts">';
-    $html .= '<h3>Similar Posts</h3>';
+    $html .= '<h3>Posts similares</h3>';
     $html .= '<ul>';
 
-    foreach($similar as $pid){
-
+    foreach ($similar as $pid) {
         $title = get_the_title($pid);
         $link  = get_permalink($pid);
-
-        if(!$title || !$link){
-            continue;
-        }
-
-        $html .= '<li><a href="'.$link.'">'.$title.'</a></li>';
+        if (!$title || !$link) continue;
+        $html .= '<li><a href="' . esc_url($link) . '">' . esc_html($title) . '</a></li>';
     }
 
     $html .= '</ul>';

@@ -43,7 +43,7 @@ function tsa_insert_similar_posts($content) {
     $html .= '<ul>';
 
     foreach ($similar as $pid) {
-        $title = get_the_title($pid);
+        $title = get_post_field('post_title', $pid);
         $link  = get_permalink($pid);
         if (!$title || !$link) continue;
         $html .= '<li><a href="' . esc_url($link) . '">' . esc_html($title) . '</a></li>';

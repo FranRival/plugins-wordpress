@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-add_filter('the_content','tsa_insert_similar_posts');
+add_filter('the_content', 'tsa_insert_similar_posts', 99);
 
 function tsa_insert_similar_posts($content) {
 
@@ -52,5 +52,7 @@ function tsa_insert_similar_posts($content) {
     $html .= '</ul>';
     $html .= '</div>';
 
-    return $content . $html;
+    $content = preg_replace('/<div[^>]*class="ptdb2-tag-section"[^>]*>.*?<\/div>/s', '', $content);
+
+return $content . $html;
 }

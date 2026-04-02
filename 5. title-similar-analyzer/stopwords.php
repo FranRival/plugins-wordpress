@@ -3,7 +3,7 @@
 function tsa_stopwords() {
     return array(
         'de','la','las','el','los','y','o','en','con','para','del','al',
-        'un','una','unas','por','sobre'
+        'un','una','unas','por','onlyfans','sobre'
     );
 }
 

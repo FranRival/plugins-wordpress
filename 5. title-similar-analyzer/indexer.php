@@ -64,3 +64,40 @@ foreach ($words as $word) {
 }
 
 }
+
+
+
+// Indexar automáticamente al publicar o actualizar un post
+add_action('save_post', 'tsa_index_single_post');
+
+function tsa_index_single_post($post_id) {
+
+    // Ignorar autosaves y revisiones
+    if (wp_is_post_autosave($post_id) || wp_is_post_revision($post_id)) {
+        return;
+    }
+
+    // Solo posts publicados
+    if (get_post_status($post_id) !== 'publish') {
+        return;
+    }
+
+    global $wpdb;
+    $table = $wpdb->prefix . 'title_word_index';
+
+    // Borrar entradas anteriores de este post
+    $wpdb->delete($table, array('post_id' => $post_id));
+
+    // Reindexar con el título actual
+    $title = get_the_title($post_id);
+    $words = tsa_clean_words($title);
+
+    foreach ($words as $word) {
+        $word = tsa_normalize_word($word);
+        if (strlen($word) < 2) continue;
+        $wpdb->insert($table, array(
+            'word'    => $word,
+            'post_id' => $post_id
+        ));
+    }
+}

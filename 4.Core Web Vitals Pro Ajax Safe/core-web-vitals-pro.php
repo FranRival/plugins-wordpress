@@ -3,6 +3,7 @@
 Plugin Name: Core Web Vitals Pro (AJAX Safe)
 Description: Progressive image loading via AJAX for tagged posts.
 Version: 1.5
+Autor: Emmanuel
 */
 
 if (!defined('ABSPATH')) exit;

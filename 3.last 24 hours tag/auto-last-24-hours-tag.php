@@ -3,7 +3,7 @@
  * Plugin Name: Auto Last 24 Hours Tag
  * Description: Agrega automáticamente la etiqueta "last 24 hours" a cada post publicado y la elimina después de 24 horas.
  * Version: 1.0
- * Author: ChatGPT
+ * Author: Emmanuel
  */
 
 if (!defined('ABSPATH')) exit;

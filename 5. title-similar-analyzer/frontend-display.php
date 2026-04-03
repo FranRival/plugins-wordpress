@@ -69,3 +69,6 @@ function tsa_insert_similar_posts($content) {
 
     return $content . $html;
 }
+
+//no funciona en las fechas de...
+//actuales de momento. Creo que tenemos que recargar los titulos. todos 

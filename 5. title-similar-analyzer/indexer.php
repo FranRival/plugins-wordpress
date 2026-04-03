@@ -49,7 +49,7 @@ foreach ($words as $word) {
 
     $word = tsa_normalize_word($word);
 
-    if(strlen($word) < 4) continue;
+    if(strlen($word) < 2) continue;
 
     $wpdb->insert(
         $table,

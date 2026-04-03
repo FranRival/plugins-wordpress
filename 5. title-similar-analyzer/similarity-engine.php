@@ -40,7 +40,7 @@ function tsa_find_similar_posts($post_id){
         WHERE word IN ($placeholders)
         AND post_id != %d
         GROUP BY post_id
-        HAVING score >= 2
+        HAVING score >= 1
         ORDER BY score DESC
         LIMIT 50
     ";

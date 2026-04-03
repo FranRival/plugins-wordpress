@@ -3,7 +3,7 @@
  * Plugin Name: Post Tags Display Booster 2
  * Description: Muestra las etiquetas del post debajo del título y al final del contenido con colores variables.
  * Version: 1.2
- * Author: Emmanuel + ChatGPT
+ * Author: Emmanuel
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;

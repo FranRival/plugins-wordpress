@@ -1,11 +1,12 @@
 <?php
 /*
-Plugin Name: PostPerDay
+Plugin Name: PostForecast
 Description: Displays posts per day with chart and table in WP admin.
 Version: 1.3
 Author: FranRival
 License: GPL2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: postforecast
 */
 
 if (!defined('ABSPATH')) exit;
@@ -13,13 +14,13 @@ if (!defined('ABSPATH')) exit;
 // Crear menú en admin
 add_action('admin_menu', function() {
     add_menu_page(
-        'Posts per Day',
-        'Posts per Day',
+        'PostForecast',
+        'PostForecast',
         'manage_options',
-        'posts-por-dia',
+        'postforecast',
         'ppd_render_admin_page',
         'dashicons-chart-bar',
-        20
+        80
     );
 });
 
@@ -57,7 +58,7 @@ function ppd_render_admin_page() {
     $end = new DateTime($end_next_month);
 
     echo '<div class="wrap">';
-    echo '<h1>Post per day (current + next month)</h1>';
+    echo '<h1>PostForecast (current + next month)</h1>';
 
     echo '<table class="widefat fixed striped">';
     echo '<thead>

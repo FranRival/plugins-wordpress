@@ -1,5 +1,5 @@
-=== PostPerDay ===
-Contributors: tuusuario
+=== PostForecast ===
+Contributors: franrival
 Tags: analytics, posts, admin, chart
 Requires at least: 5.0
 Tested up to: 6.9

@@ -3,7 +3,7 @@
  * Plugin Name: WPDS - Desplazador de Fechas de Posts Programados
  * Description: Desplaza (retrasa) en X días la fecha de publicación de todos los posts con estado "Programado" (future), reprogramando también el evento de wp-cron correspondiente para que el post se publique realmente en la nueva fecha. Incluye vista previa y opción de revertir el último desplazamiento.
  * Version: 1.0
- * Author: EIV
+ * Author: EIV.
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -67,15 +67,29 @@ class WPDS_Date_Shifter {
 
         $all_types = get_post_types( array( 'public' => true ), 'objects' );
         $last_log  = get_option( self::OPTION_LOG, array() );
+        $stuck_count = $this->count_stuck_posts();
 
         ?>
         <div class="wrap">
             <h1>Desplazar fechas de posts programados</h1>
             <p>
                 Esta herramienta suma <strong>X días</strong> a la fecha de publicación de todos los posts
-                con estado <strong>"Programado" (future)</strong>, y reprograma correctamente el evento de
-                wp-cron que dispara la publicación real. No modifica ningún otro dato del post.
+                con estado <strong>"Programado" (future) cuya fecha es igual o posterior a ahora</strong>,
+                y reprograma correctamente el evento de wp-cron que dispara la publicación real.
+                No modifica ningún otro dato del post.
             </p>
+
+            <?php if ( $stuck_count > 0 ) : ?>
+                <div class="notice notice-warning">
+                    <p>
+                        ⚠️ Hay <strong><?php echo intval( $stuck_count ); ?></strong> post(s) con estado "Programado"
+                        cuya fecha ya pasó (posts atascados que no se publicaron por algún fallo de wp-cron).
+                        Esta herramienta <strong>no los toca</strong> a propósito, para evitar que se publiquen
+                        todos de golpe. Revísalos por separado en
+                        <a href="<?php echo esc_url( admin_url( 'edit.php?post_status=future&post_type=post' ) ); ?>">Posts → Programados</a>.
+                    </p>
+                </div>
+            <?php endif; ?>
 
             <?php if ( $reverted ) : ?>
                 <div class="notice notice-success"><p>✅ Se revirtió el último desplazamiento correctamente.</p></div>
@@ -156,6 +170,17 @@ class WPDS_Date_Shifter {
         <?php
     }
 
+    private function count_stuck_posts() {
+        global $wpdb;
+        $now_gmt = current_time( 'mysql', true );
+        return (int) $wpdb->get_var(
+            $wpdb->prepare(
+                "SELECT COUNT(ID) FROM {$wpdb->posts} WHERE post_status = 'future' AND post_date_gmt < %s",
+                $now_gmt
+            )
+        );
+    }
+
     private function render_table( $items ) {
         echo '<table class="widefat striped"><thead><tr><th>ID</th><th>Título</th><th>Fecha anterior</th><th>Fecha nueva</th></tr></thead><tbody>';
         $count = 0;
@@ -184,9 +209,19 @@ class WPDS_Date_Shifter {
         global $wpdb;
 
         $placeholders = implode( ',', array_fill( 0, count( $post_types ), '%s' ) );
+
+        // Importante: excluimos posts "future" cuya fecha ya pasó (posts atascados que
+        // WordPress no logró publicar por fallo de wp-cron u otra causa). Si los tocáramos,
+        // al reprogramar su cron con una fecha aún pasada, WordPress los publicaría todos
+        // de golpe en la siguiente ejecución de cron.
+        $now_gmt = current_time( 'mysql', true );
+
         $sql = $wpdb->prepare(
-            "SELECT ID, post_date, post_date_gmt, post_title FROM {$wpdb->posts} WHERE post_status = 'future' AND post_type IN ($placeholders)",
-            $post_types
+            "SELECT ID, post_date, post_date_gmt, post_title FROM {$wpdb->posts}
+             WHERE post_status = 'future'
+             AND post_date_gmt >= %s
+             AND post_type IN ($placeholders)",
+            array_merge( array( $now_gmt ), $post_types )
         );
         $posts = $wpdb->get_results( $sql );
 

@@ -1,0 +1,2 @@
+* Plugin Name: WPDS - Desplazador de Fechas de Posts Programados
+ * Description: Desplaza (retrasa) en X días la fecha de publicación de todos los posts con estado "Programado" (future), reprogramando también el evento de wp-cron correspondiente para que el post se publique realmente en la nueva fecha. Incluye vista previa y opción de revertir el último desplazamiento.

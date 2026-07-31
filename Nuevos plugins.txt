@@ -63,3 +63,10 @@ Plugin Developer
 CMS Plugin Developer
 WordPress Product Developer
 WordPress Tools Developer
+
+
+_______7-15-26
+
+wp-script-core consume muchos recursos. 
+
+solo en el backend edicion. 

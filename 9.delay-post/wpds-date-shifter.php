@@ -2,8 +2,8 @@
 /**
  * Plugin Name: WPDS - Desplazador de Fechas de Posts Programados
  * Description: Desplaza (retrasa) en X días la fecha de publicación de todos los posts con estado "Programado" (future), reprogramando también el evento de wp-cron correspondiente para que el post se publique realmente en la nueva fecha. Incluye vista previa y opción de revertir el último desplazamiento.
- * Version: 1.0
- * Author: EIV.
+ * Version: 3.0
+ * Author: EIV
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -166,8 +166,154 @@ class WPDS_Date_Shifter {
                     </button>
                 </form>
             <?php endif; ?>
+
+            <hr>
+            <h2>Explorador: posts programados por día</h2>
+            <p>Selecciona un día para ver cuántos posts hay programados y revisarlos con paginación.</p>
+            <?php $this->render_day_explorer(); ?>
         </div>
         <?php
+    }
+
+    private function render_day_explorer() {
+        global $wpdb;
+
+        $all_types = get_post_types( array( 'public' => true ), 'objects' );
+        $post_type = isset( $_GET['wpds_type'] ) ? sanitize_text_field( wp_unslash( $_GET['wpds_type'] ) ) : 'post';
+        if ( ! isset( $all_types[ $post_type ] ) ) {
+            $post_type = 'post';
+        }
+
+        $now_gmt = current_time( 'mysql', true );
+
+        // Resumen: cantidad de posts pendientes agrupados por día.
+        $summary = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT DATE(post_date) as day, COUNT(*) as cnt FROM {$wpdb->posts}
+                 WHERE post_status = 'future' AND post_date_gmt >= %s AND post_type = %s
+                 GROUP BY DATE(post_date) ORDER BY day ASC",
+                $now_gmt,
+                $post_type
+            )
+        );
+
+        $selected_day = isset( $_GET['wpds_day'] ) ? sanitize_text_field( wp_unslash( $_GET['wpds_day'] ) ) : '';
+        ?>
+        <form method="get">
+            <input type="hidden" name="page" value="wpds-shift">
+            <table class="form-table">
+                <tr>
+                    <th><label for="wpds_type">Tipo de contenido</label></th>
+                    <td>
+                        <select name="wpds_type" id="wpds_type">
+                            <?php foreach ( $all_types as $type ) : ?>
+                                <option value="<?php echo esc_attr( $type->name ); ?>" <?php selected( $post_type, $type->name ); ?>>
+                                    <?php echo esc_html( $type->labels->singular_name ); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="wpds_day">Día</label></th>
+                    <td>
+                        <select name="wpds_day" id="wpds_day">
+                            <option value="">-- Selecciona un día (<?php echo count( $summary ); ?> días con posts pendientes) --</option>
+                            <?php foreach ( $summary as $row ) : ?>
+                                <option value="<?php echo esc_attr( $row->day ); ?>" <?php selected( $selected_day, $row->day ); ?>>
+                                    <?php echo esc_html( $row->day ); ?> — <?php echo intval( $row->cnt ); ?> posts
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <p><button type="submit" class="button button-secondary">🔍 Ver posts de ese día</button></p>
+        </form>
+
+        <?php if ( ! empty( $summary ) ) :
+            $total_pendientes = array_sum( wp_list_pluck( $summary, 'cnt' ) );
+            ?>
+            <p>
+                <strong>Total días con posts pendientes:</strong> <?php echo count( $summary ); ?>
+                — <strong>Total posts pendientes (<?php echo esc_html( $post_type ); ?>):</strong> <?php echo intval( $total_pendientes ); ?>
+            </p>
+        <?php endif; ?>
+
+        <?php if ( $selected_day ) : ?>
+            <?php $this->render_day_posts( $selected_day, $post_type ); ?>
+        <?php endif; ?>
+        <?php
+    }
+
+    private function render_day_posts( $day, $post_type ) {
+        global $wpdb;
+
+        $per_page = 50;
+        $paged    = isset( $_GET['wpds_page'] ) ? max( 1, intval( $_GET['wpds_page'] ) ) : 1;
+        $offset   = ( $paged - 1 ) * $per_page;
+
+        $total = (int) $wpdb->get_var(
+            $wpdb->prepare(
+                "SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_status = 'future' AND DATE(post_date) = %s AND post_type = %s",
+                $day,
+                $post_type
+            )
+        );
+
+        $posts = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT ID, post_title, post_date FROM {$wpdb->posts}
+                 WHERE post_status = 'future' AND DATE(post_date) = %s AND post_type = %s
+                 ORDER BY post_date ASC LIMIT %d OFFSET %d",
+                $day,
+                $post_type,
+                $per_page,
+                $offset
+            )
+        );
+
+        $total_pages = max( 1, (int) ceil( $total / $per_page ) );
+
+        echo '<h3>Posts del día ' . esc_html( $day ) . '</h3>';
+        echo '<table class="widefat striped"><thead><tr><th>ID</th><th>Título</th><th>Fecha/Hora</th></tr></thead><tbody>';
+        foreach ( $posts as $p ) {
+            echo '<tr>';
+            echo '<td>' . esc_html( $p->ID ) . '</td>';
+            echo '<td>' . esc_html( $p->post_title ? $p->post_title : '(sin título)' ) . '</td>';
+            echo '<td>' . esc_html( $p->post_date ) . '</td>';
+            echo '</tr>';
+        }
+        if ( empty( $posts ) ) {
+            echo '<tr><td colspan="3">No se encontraron posts para este día.</td></tr>';
+        }
+        echo '</tbody></table>';
+
+        if ( $total_pages > 1 ) {
+            echo '<p class="tablenav"><span class="pagination-links">';
+            for ( $i = 1; $i <= $total_pages; $i++ ) {
+                $url = add_query_arg(
+                    array(
+                        'page'      => 'wpds-shift',
+                        'wpds_day'  => $day,
+                        'wpds_type' => $post_type,
+                        'wpds_page' => $i,
+                    ),
+                    admin_url( 'admin.php' )
+                );
+                if ( $i === $paged ) {
+                    echo '<strong>' . intval( $i ) . '</strong>&nbsp;&nbsp;';
+                } else {
+                    echo '<a href="' . esc_url( $url ) . '">' . intval( $i ) . '</a>&nbsp;&nbsp;';
+                }
+            }
+            echo '</span></p>';
+        }
+
+        $showing_start = $total > 0 ? $offset + 1 : 0;
+        $showing_end   = min( $offset + $per_page, $total );
+
+        echo '<p><strong>Mostrando ' . intval( $showing_start ) . '–' . intval( $showing_end ) . ' de ' . intval( $total ) . ' posts encontrados para el día ' . esc_html( $day ) . '.</strong></p>';
     }
 
     private function count_stuck_posts() {
